@@ -23,6 +23,11 @@ public class AuthController {
     return "login";
   }
 
+  @GetMapping("/logout")
+  public String logoutPage() {
+    return "logout";
+  }
+
   @GetMapping("/register")
   public String registerPage(Model model) {
     RegistrationWriteDto user = new RegistrationWriteDto();

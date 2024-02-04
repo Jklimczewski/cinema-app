@@ -10,25 +10,6 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .seat {
-        width: 40px;
-        height: 40px;
-        margin: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #cbd5e0;
-        border: 1px solid #a0aec0;
-        cursor: pointer;
-        color: black;
-      }
-
-      .selected {
-        background-color: cadetblue;
-        border: 1px solid #38a169;
-      }
-    </style>
   </head>
   <body>
     <div class="navbar bg-base-100 border-b mb-5">
@@ -97,46 +78,8 @@
 
     <div class="flex flex-col w-full h-full">
       <div class="grid card bg-base-300 rounded-box place-items-center">
-        <div class="hero-content flex-col lg:flex-row">
-          <button th:attr="onclick=|navigateFilm('${schedule.film.title}')|">
-            <img
-              src="https://icdn.2cda.pl/obr/oryginalne/772930e22c53b812c22f4be76d0cadc7.jpg"
-              class="max-w-sm rounded-lg shadow-2xl"
-            />
-          </button>
-          <div>
-            <h1
-              class="text-5xl font-bold mb-5"
-              th:text="${schedule.film.title}"
-            ></h1>
-            <p
-              class="text-3xl font-small"
-              th:text="'Wybrana data: ' + ${schedule.showDate}"
-            ></p>
-            <p
-              class="text-3xl font-small"
-              th:text="'Wybrana godzina: ' + ${schedule.showTime}"
-            ></p>
-          </div>
-        </div>
-
-        <h1 class="text-4xl font-medium mb-5">Wybierz miejsca:</h1>
-        <div class="flex flex-row mb-10">
-          <ul class="flex flex-row pr-5">
-            <li id="cinemaHall" th:each="seat : ${schedule.availableSeats}">
-              <div
-                class="seat"
-                th:attr="onclick=|toggleSeat(this, '${seat}')|"
-                th:text="${seat}"
-              ></div>
-            </li>
-          </ul>
-          <button
-            class="btn btn-accent"
-            th:attr="onclick=|reservation('${schedule.id}')|"
-          >
-            Zarezerwuj
-          </button>
+        <div class="hero-content h-80">
+          <h1 class="font-bold text-3xl">No items in cart !</h1>
         </div>
       </div>
     </div>
@@ -144,46 +87,7 @@
 </html>
 
 <script>
-  function navigateFilm(filmTitle) {
-    const convertedFilmTitle = filmTitle.replace(" ", "-");
-    window.location.href = `/films/${convertedFilmTitle}`;
-  }
-
   function navigateCart() {
     window.location.href = `/cart`;
-  }
-
-  function toggleSeat(seat, seatNumber) {
-    seat.classList.toggle("selected");
-  }
-
-  function reservation(scheduleId) {
-    const selectedDivs = Array.from(
-      document.getElementsByClassName("selected")
-    );
-    const pickedSeats = [];
-    selectedDivs.forEach((element) => {
-      pickedSeats.push(element.textContent);
-    });
-    if (pickedSeats.length > 0) {
-      const postData = {
-        scheduleId,
-        pickedSeats,
-      };
-      fetch("/reservation", {
-        method: "POST",
-        redirect: "follow",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(postData),
-      })
-        .then((response) => {
-          window.location.href = response.url;
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    }
   }
 </script>

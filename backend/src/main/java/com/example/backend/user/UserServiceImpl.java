@@ -21,7 +21,6 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public UserEntity save(RegistrationWriteDto writeDto) {
-    System.out.println("ELOS");
     Role role = roleRepository.findByName("USER");
     UserEntity userToCreate = UserEntity.builder()
         .username(writeDto.getUsername())

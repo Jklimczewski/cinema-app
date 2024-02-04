@@ -13,5 +13,6 @@ public record ReservationReadDto(
     String showTime,
     String filmTitle,
     String filmPicture,
-    List<Integer> pickedSeats) {
+    List<Integer> pickedSeats,
+    String username) {
 }

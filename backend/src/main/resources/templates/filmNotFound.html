@@ -14,7 +14,7 @@
   <body>
     <div class="navbar bg-base-100 border-b mb-5">
       <div class="flex-1">
-        <a href="/repertoire" class="btn btn-ghost text-xl">KINO</a>
+        <a href="/repertoire" class="btn btn-ghost text-xl">CINEMA APP</a>
       </div>
       <div class="flex-none">
         <div class="dropdown dropdown-end">
@@ -42,10 +42,13 @@
             class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
           >
             <div class="card-body">
-              <span class="font-bold text-lg">8 Items</span>
-              <span class="text-info">Subtotal: $999</span>
               <div class="card-actions">
-                <button class="btn btn-primary btn-block">View cart</button>
+                <button
+                  class="btn btn-primary btn-block"
+                  th:attr="onclick=|navigateCart()|"
+                >
+                  View cart
+                </button>
               </div>
             </div>
           </div>
@@ -67,7 +70,7 @@
             tabindex="0"
             class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li><a>Logout</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -82,3 +85,9 @@
     </div>
   </body>
 </html>
+
+<script>
+  function navigateCart() {
+    window.location.href = `/cart`;
+  }
+</script>

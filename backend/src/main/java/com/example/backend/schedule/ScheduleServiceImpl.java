@@ -34,4 +34,20 @@ public class ScheduleServiceImpl implements ScheduleService {
   public Schedule getById(UUID id) {
     return scheduleRepository.findById(id).get();
   }
+
+  @Override
+  public void updateAvailableSeats(UUID scheduleId, List<Integer> pickedSeats) {
+    Schedule schedule = scheduleRepository.findById(scheduleId).get();
+
+    List<Integer> availableSeats = schedule.getAvailableSeats();
+
+    for (Integer pickedSeat : pickedSeats) {
+      if (availableSeats.contains(pickedSeat)) {
+        availableSeats.remove(pickedSeat);
+      } else {
+        System.err.println("No available seat nr:" + pickedSeat.toString());
+      }
+    }
+    scheduleRepository.save(schedule);
+  }
 }

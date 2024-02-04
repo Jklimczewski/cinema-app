@@ -14,7 +14,7 @@
   <body>
     <div class="navbar bg-base-100 border-b mb-5">
       <div class="flex-1">
-        <a href="/schedule" class="btn btn-ghost text-xl">KINO</a>
+        <a href="/repertoire" class="btn btn-ghost text-xl">KINO</a>
       </div>
       <div class="flex-none">
         <div class="dropdown dropdown-end">
@@ -42,10 +42,13 @@
             class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
           >
             <div class="card-body">
-              <span class="font-bold text-lg">8 Items</span>
-              <span class="text-info">Subtotal: $999</span>
               <div class="card-actions">
-                <button class="btn btn-primary btn-block">View cart</button>
+                <button
+                  class="btn btn-primary btn-block"
+                  th:attr="onclick=|navigateCart()|"
+                >
+                  View cart
+                </button>
               </div>
             </div>
           </div>
@@ -67,53 +70,70 @@
             tabindex="0"
             class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li><a>Logout</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="flex flex-col w-full h-full">
-      <div class="grid card bg-base-300 rounded-box place-items-center">
-        <div class="hero-content flex-col lg:flex-row">
-          <a href="/">
-            <img
-              src="https://icdn.2cda.pl/obr/oryginalne/772930e22c53b812c22f4be76d0cadc7.jpg"
-              class="max-w-32 rounded-lg shadow-2xl"
-            />
-          </a>
-          <div class="flex flex-row text-3xl space-x-5">
-            <h1 class="font-medium">Tytuł</h1>
-            <h2>Data i godzina</h2>
-            <h2>wybrane miejsca</h2>
-            <button class="btn btn-primary">Edytuj</button>
-            <button class="btn btn-secondary">Usuń</button>
+      <ul>
+        <li th:each="reservation : ${reservations}">
+          <div class="grid card bg-base-300 rounded-box place-items-center">
+            <div class="hero-content flex-col lg:flex-row">
+              <button
+                th:attr="onclick=|navigateFilm('${reservation.schedule.film.title}')|"
+              >
+                <img
+                  src="https://icdn.2cda.pl/obr/oryginalne/772930e22c53b812c22f4be76d0cadc7.jpg"
+                  class="max-w-32 rounded-lg shadow-2xl"
+                />
+              </button>
+              <div class="flex flex-row text-3xl space-x-5">
+                <h1
+                  class="font-medium"
+                  th:text="${reservation.schedule.film.title}"
+                ></h1>
+                <p th:text="${reservation.schedule.showDate}"></p>
+                <p th:text="${reservation.schedule.showTime}"></p>
+                <p th:text="${reservation.pickedSeats}"></p>
+                <button
+                  class="btn btn-primary"
+                  th:attr="onclick=|editReservation('${reservation.id}')|"
+                >
+                  Edytuj
+                </button>
+                <button
+                  class="btn btn-secondary"
+                  th:attr="onclick=|deleteReservation('${reservation.id}')|"
+                >
+                  Usuń
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="grid card bg-base-300 rounded-box place-items-center">
-        <div class="hero-content flex-col lg:flex-row">
-          <a href="/">
-            <img
-              src="https://icdn.2cda.pl/obr/oryginalne/772930e22c53b812c22f4be76d0cadc7.jpg"
-              class="max-w-32 rounded-lg shadow-2xl"
-            />
-          </a>
-          <div class="flex flex-row text-3xl space-x-5">
-            <h1 class="font-medium">Tytuł</h1>
-            <h2>Data i godzina</h2>
-            <h2>wybrane miejsca</h2>
-            <button class="btn btn-primary">Edytuj</button>
-            <button class="btn btn-secondary">Usuń</button>
-          </div>
-        </div>
-      </div>
+          <div class="divider"></div>
+        </li>
+      </ul>
       <div class="self-center mt-20">
-        <button class="btn btn-accent">Potwierdź zamówienie</button>
         <button class="btn btn-accent">Potwierdź zamówienie</button>
         <div class="text-3xl p-5">Numer zamówienia:</div>
       </div>
     </div>
   </body>
 </html>
+
+<script>
+  function navigateFilm(filmTitle) {
+    const convertedFilmTitle = filmTitle.replace(" ", "-");
+    window.location.href = `/films/${convertedFilmTitle}`;
+  }
+
+  function navigateCart() {
+    window.location.href = `/cart`;
+  }
+
+  function deleteReservation(reservationId) {
+    window.location.href = `/reservation/${reservationId}/delete`;
+  }
+</script>

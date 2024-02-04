@@ -7,7 +7,6 @@ import java.util.Set;
 import com.example.backend.actor.Actor;
 import com.example.backend.schedule.Schedule;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -52,7 +51,7 @@ public class Film {
   @OneToMany(mappedBy = "film")
   private Set<Schedule> schedules;
 
-  @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "film_id"), inverseJoinColumns = @JoinColumn(name = "actor_id"))
   private Set<Actor> actors;
 

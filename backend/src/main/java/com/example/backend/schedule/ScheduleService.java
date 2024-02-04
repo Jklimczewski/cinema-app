@@ -13,4 +13,6 @@ public interface ScheduleService {
   Schedule save(Schedule schedule);
 
   List<Schedule> findAll();
+
+  void updateAvailableSeats(UUID id, List<Integer> pickedSeats);
 }

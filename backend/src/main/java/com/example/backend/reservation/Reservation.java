@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.example.backend.schedule.Schedule;
-import jakarta.persistence.CascadeType;
+import com.example.backend.user.UserEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -29,11 +29,17 @@ public class Reservation {
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
-  @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "schedule_id", nullable = false)
   private Schedule schedule;
+
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "user_id", nullable = false)
+  private UserEntity madeBy;
 
   @Column(nullable = false)
   private List<Integer> pickedSeats;
 
+  @Column(nullable = false)
+  private boolean finalized;
 }
