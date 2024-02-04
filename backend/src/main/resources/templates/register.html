@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex flex-col items-center pt-10">
+      <div class="card items-center w-full max-w-md shadow-2xl bg-base-200">
+        <h1 class="p-10 self-center text-3xl font-bold text-center">
+          Zarejerstruj się!
+        </h1>
+        <div class="col-md-6 col-sm-12">
+          <div th:if="${param.fail}" class="alert alert-error">
+            Username or email already exists
+          </div>
+          <div class="login-form">
+            <form
+              method="post"
+              role="form"
+              th:action="@{/register/save}"
+              th:object="${user}"
+              class="card-body"
+            >
+              <div class="form-group form-control">
+                <label for="usernmae" class="label">
+                  <span class="label-text">Username</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Username"
+                  th:field="*{username}"
+                  class="form-control input input-bordered"
+                  required
+                />
+              </div>
+              <p
+                th:if="${#fields.hasErrors('username')}"
+                class="text-danger"
+              ></p>
+              <div class="form-group">
+                <label for="email" class="label">
+                  <span class="label-text">Email</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  th:field="*{email}"
+                  class="form-control input input-bordered"
+                  required
+                />
+              </div>
+              <p th:if="${#fields.hasErrors('email')}" class="text-danger"></p>
+              <div class="form-group">
+                <label for="password" class="label">
+                  <span class="label-text">Password</span>
+                </label>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  th:field="*{password}"
+                  class="form-control input input-bordered"
+                  required
+                />
+              </div>
+              <p
+                th:if="${#fields.hasErrors('password')}"
+                class="text-danger"
+              ></p>
+              <div class="form-control mt-2">
+                <button type="submit" class="btn btn-primary">Register</button>
+              </div>
+            </form>
+          </div>
+          <a class="link" href="/login">Login</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

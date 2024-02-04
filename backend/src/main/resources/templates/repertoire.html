@@ -78,46 +78,55 @@
       <div class="relative max-w-sm self-center mb-5">
         <form th:action="@{/repertoire}" method="get">
           <label for="date">Select Date:</label>
-          <input type="date" id="date" name="date" th:value="${date}">
+          <input type="date" id="date" name="date" th:value="${date}" />
           <button type="submit">Submit</button>
         </form>
       </div>
 
       <ul>
         <li th:each="schedule : ${repertoire}">
-            <div class="grid card bg-base-300 rounded-box place-items-center">
-              <div class="hero-content flex-col lg:flex-row">
-                <button th:attr="onclick=|navigateFilm('${schedule.film.title}')|">
-                  <img
-                    src="https://icdn.2cda.pl/obr/oryginalne/772930e22c53b812c22f4be76d0cadc7.jpg"
-                    class="max-w-sm rounded-lg shadow-2xl"
-                  />
-                </button>
-                <div>
-                  <h1 class="text-5xl font-bold pb-5" th:text="${schedule.film.title}"></h1>
-                  <!-- <ul class=" flex flex-row py-6">
+          <div class="grid card bg-base-300 rounded-box place-items-center">
+            <div class="hero-content flex-col lg:flex-row">
+              <button
+                th:attr="onclick=|navigateFilm('${schedule.film.title}')|"
+              >
+                <img
+                  src="https://icdn.2cda.pl/obr/oryginalne/772930e22c53b812c22f4be76d0cadc7.jpg"
+                  class="max-w-sm rounded-lg shadow-2xl"
+                />
+              </button>
+              <div>
+                <h1
+                  class="text-5xl font-bold pb-5"
+                  th:text="${schedule.film.title}"
+                ></h1>
+                <!-- <ul class=" flex flex-row py-6">
                     <li th:each="hour : ${schedule.availableHours}">
                       <button class="btn" th:text="${hour + ' '}"></button>
                     </li>
                   </ul> -->
-                  <button class="btn" th:attr="onclick=|navigateSchedule('${schedule.id}')|" th:text="${schedule.showTime}"></button>
-                </div>
+                <button
+                  class="btn"
+                  th:attr="onclick=|navigateSchedule('${schedule.id}')|"
+                  th:text="${schedule.showTime}"
+                ></button>
               </div>
             </div>
-            <div class="divider"></div>
+          </div>
+          <div class="divider"></div>
         </li>
-    </ul>
+      </ul>
     </div>
   </body>
 </html>
 
 <script>
   function navigateFilm(filmTitle) {
-    const convertedFilmTitle = filmTitle.replace(' ', '-');
-    window.location.href = `/films/${convertedFilmTitle}`
+    const convertedFilmTitle = filmTitle.replace(" ", "-");
+    window.location.href = `/films/${convertedFilmTitle}`;
   }
 
   function navigateSchedule(scheduleId) {
-    window.location.href = `/repertoire/${scheduleId}`
+    window.location.href = `/repertoire/${scheduleId}`;
   }
 </script>

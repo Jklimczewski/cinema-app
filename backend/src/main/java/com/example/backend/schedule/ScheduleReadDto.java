@@ -8,10 +8,10 @@ import lombok.Builder;
 
 @Builder
 public record ScheduleReadDto(
-                UUID id,
-                LocalDate showDate,
-                String showTime,
-                String filmTitle,
-                String filmPicture,
-                List<Integer> availableSeats) {
+    UUID id,
+    LocalDate showDate,
+    String showTime,
+    String filmTitle,
+    String filmPicture,
+    List<Integer> availableSeats) {
 }

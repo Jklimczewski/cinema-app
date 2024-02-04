@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex flex-col items-center pt-10">
+      <div class="card items-center w-full max-w-md shadow-2xl bg-base-200">
+        <h1 class="p-10 self-center text-3xl font-bold text-center">
+          Zaloguj się!
+        </h1>
+        <div class="col-md-6 col-sm-12">
+          <div th:if="${param.error}" class="alert alert-error">
+            Invalid email or password.
+          </div>
+          <div th:if="${param.logout}" class="alert alert-success">
+            You have been logged out.
+          </div>
+          <div class="login-form">
+            <form method="post" th:action="@{/login}" class="card-body">
+              <div class="form-group form-control">
+                <label for="email" class="label">
+                  <span class="label-text">Email</span>
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  class="form-control input input-bordered"
+                  placeholder="Email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="form-group form-control">
+                <label for="password" class="label">
+                  <span class="label-text">Password</span>
+                </label>
+                <input
+                  id="password"
+                  type="password"
+                  class="form-control input input-bordered"
+                  placeholder="Password"
+                  name="password"
+                  required
+                />
+              </div>
+              <div class="form-control mt-2">
+                <button type="submit" value="Log in" class="btn btn-primary">
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+          <a class="link" href="/register">Create account</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -102,9 +102,18 @@
             />
           </button>
           <div>
-            <h1 class="text-5xl font-bold mb-5" th:text="${schedule.film.title}"></h1>
-            <p class="text-3xl font-small" th:text="'Wybrana data: ' + ${schedule.showDate}"></p>
-            <p class="text-3xl font-small" th:text="'Wybrana godzina: ' + ${schedule.showTime}"></p>
+            <h1
+              class="text-5xl font-bold mb-5"
+              th:text="${schedule.film.title}"
+            ></h1>
+            <p
+              class="text-3xl font-small"
+              th:text="'Wybrana data: ' + ${schedule.showDate}"
+            ></p>
+            <p
+              class="text-3xl font-small"
+              th:text="'Wybrana godzina: ' + ${schedule.showTime}"
+            ></p>
           </div>
         </div>
 
@@ -112,10 +121,19 @@
         <div class="flex flex-row mb-10">
           <ul class="flex flex-row pr-5">
             <li id="cinemaHall" th:each="seat : ${schedule.availableSeats}">
-              <div class="seat" th:attr="onclick=|toggleSeat(this, '${seat}')|" th:text="${seat}"></div>
+              <div
+                class="seat"
+                th:attr="onclick=|toggleSeat(this, '${seat}')|"
+                th:text="${seat}"
+              ></div>
             </li>
           </ul>
-          <button class="btn btn-accent">Zarezerwuj</button>
+          <button
+            class="btn btn-accent"
+            th:attr="onclick=|reservation('${schedule.id}')|"
+          >
+            Zarezerwuj
+          </button>
         </div>
       </div>
     </div>
@@ -124,14 +142,35 @@
 
 <script>
   function navigateFilm(filmTitle) {
-    const convertedFilmTitle = filmTitle.replace(' ', '-');
-    window.location.href = `/films/${convertedFilmTitle}`
+    const convertedFilmTitle = filmTitle.replace(" ", "-");
+    window.location.href = `/films/${convertedFilmTitle}`;
   }
   function toggleSeat(seat, seatNumber) {
     seat.classList.toggle("selected");
   }
 
-  function reservation() {
-    const selected = document.getElementsByClassName("selected")
+  function reservation(scheduleId) {
+    const selectedDivs = Array.from(
+      document.getElementsByClassName("selected")
+    );
+    const pickedSeats = [];
+    selectedDivs.forEach((element) => {
+      pickedSeats.push(element.textContent);
+    });
+    // fetch('/your/post/endpoint', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(postData),
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //     // Handle the response if needed
+    //     console.log('Reservation response:', data);
+    // })
+    // .catch((error) => {
+    //     console.error('Error:', error);
+    // });
   }
 </script>

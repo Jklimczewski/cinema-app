@@ -6,7 +6,7 @@ import lombok.Builder;
 
 @Builder
 public record ScheduleWriteDto(
-                LocalDate showDate,
-                Integer filmId,
-                String showTime) {
+    LocalDate showDate,
+    Integer filmId,
+    String showTime) {
 }

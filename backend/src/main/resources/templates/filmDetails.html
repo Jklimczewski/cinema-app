@@ -82,15 +82,26 @@
           />
           <div class="flex flex-col">
             <h1 class="text-5xl font-bold" th:text="${film.title}"></h1>
-            <p class="text-3xl font-md pt-2" th:text="'gatunek: ' + ${film.genre}"></p>
-            <p class="text-3xl font-md pt-2" th:text="'age: +' + ${film.age}"></p>
-            <p class="text-3xl font-md pt-2" th:text="'reżyser: ' + ${film.director}"></p>
+            <p
+              class="text-3xl font-md pt-2"
+              th:text="'gatunek: ' + ${film.genre}"
+            ></p>
+            <p
+              class="text-3xl font-md pt-2"
+              th:text="'age: +' + ${film.age}"
+            ></p>
+            <p
+              class="text-3xl font-md pt-2"
+              th:text="'reżyser: ' + ${film.director}"
+            ></p>
             <ul class="flex flex-row text-3xl font-md pt-2">
-              <p class="pr-1">aktorzy: </p>
+              <p class="pr-1">aktorzy:</p>
               <li class="pr-5" th:each="actor : ${film.actors}">
-                <span th:text="${actor.name} + ' ' + ${actor.surrname} + ', "></span>
+                <span
+                  th:text="${actor.name} + ' ' + ${actor.surrname} + ', "
+                ></span>
               </li>
-            </div>
+            </ul>
           </div>
         </div>
       </div>

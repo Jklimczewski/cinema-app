@@ -28,6 +28,8 @@ dependencies {
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 	implementation("org.mapstruct:mapstruct:1.5.5.Final")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+	implementation("org.springframework.boot:spring-boot-starter-security")
+  implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
 
 
 	runtimeOnly("org.postgresql:postgresql")
@@ -37,6 +39,7 @@ dependencies {
 	annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.springframework.security:spring-security-test")
 }
 
 tasks.withType<JavaCompile> {
