@@ -97,7 +97,9 @@
     <div class="flex flex-col w-full h-full">
       <div class="grid card bg-base-300 rounded-box place-items-center">
         <div class="hero-content flex-col lg:flex-row">
-          <button th:attr="onclick=|navigateFilm('${schedule.film.title}')|">
+          <button
+            th:attr="onclick=|navigateFilm('${reservation.schedule.film.title}')|"
+          >
             <img
               src="https://icdn.2cda.pl/obr/oryginalne/772930e22c53b812c22f4be76d0cadc7.jpg"
               class="max-w-sm rounded-lg shadow-2xl"
@@ -106,23 +108,30 @@
           <div>
             <h1
               class="text-5xl font-bold mb-5"
-              th:text="${schedule.film.title}"
+              th:text="${reservation.schedule.film.title}"
             ></h1>
             <p
               class="text-3xl font-small"
-              th:text="'Wybrana data: ' + ${schedule.showDate}"
+              th:text="'Wybrana data: ' + ${reservation.schedule.showDate}"
             ></p>
             <p
               class="text-3xl font-small"
-              th:text="'Wybrana godzina: ' + ${schedule.showTime}"
+              th:text="'Wybrana godzina: ' + ${reservation.schedule.showTime}"
+            ></p>
+            <p
+              class="text-3xl font-small"
+              th:text="'Wybrane miejsca: ' + ${reservation.pickedSeats}"
             ></p>
           </div>
         </div>
 
-        <h1 class="text-4xl font-medium mb-5">Wybierz miejsca:</h1>
+        <h1 class="text-4xl font-medium mb-5">Wybierz nowe miejsca:</h1>
         <div class="flex flex-row mb-10">
           <ul class="flex flex-row pr-5">
-            <li id="cinemaHall" th:each="seat : ${schedule.availableSeats}">
+            <li
+              id="cinemaHall"
+              th:each="seat : ${reservation.schedule.availableSeats}"
+            >
               <div
                 class="seat"
                 th:attr="onclick=|toggleSeat(this, '${seat}')|"
@@ -132,7 +141,7 @@
           </ul>
           <button
             class="btn btn-accent"
-            th:attr="onclick=|reservation('${schedule.id}')|"
+            th:attr="onclick=|reservation('${reservation.id}', '${reservation.schedule.id}', '${reservation.pickedSeats}')|"
           >
             Zarezerwuj
           </button>
@@ -156,7 +165,7 @@
     seat.classList.toggle("selected");
   }
 
-  function reservation(scheduleId) {
+  function reservation(reservationId, scheduleId, lastSeats) {
     const selectedDivs = Array.from(
       document.getElementsByClassName("selected")
     );
@@ -164,12 +173,16 @@
     selectedDivs.forEach((element) => {
       pickedSeats.push(element.textContent);
     });
-    if (pickedSeats.length > 0) {
+
+    if (
+      pickedSeats.length > 0 &&
+      pickedSeats.toString() != JSON.parse(lastSeats).toString()
+    ) {
       const postData = {
         scheduleId,
         pickedSeats,
       };
-      fetch("/reservation", {
+      fetch(`/reservation/${reservationId}/update`, {
         method: "POST",
         redirect: "follow",
         headers: {

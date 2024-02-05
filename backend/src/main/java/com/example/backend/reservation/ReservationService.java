@@ -13,7 +13,9 @@ public interface ReservationService {
 
   Reservation save(ReservationWriteDto writeDto);
 
-  void finalize(Reservation reservation);
+  Reservation finalize(Reservation reservation);
+
+  Reservation updatePickedSeats(UUID reservationId, List<Integer> pickedSeats);
 
   void delete(Reservation reservation);
 

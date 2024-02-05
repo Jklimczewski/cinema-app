@@ -2,11 +2,10 @@ package com.example.backend.film;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-import java.util.Set;
+import java.util.List;
 
 import com.example.backend.actor.Actor;
 import com.example.backend.schedule.Schedule;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -47,16 +46,14 @@ public class Film {
   @Column(nullable = false)
   private String director;
 
-  @JsonIgnore
   @OneToMany(mappedBy = "film")
-  private Set<Schedule> schedules;
+  private List<Schedule> schedules;
 
   @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "film_id"), inverseJoinColumns = @JoinColumn(name = "actor_id"))
-  private Set<Actor> actors;
+  private List<Actor> actors;
 
   public void addActor(Actor actor) {
     actors.add(actor);
   }
-
 }

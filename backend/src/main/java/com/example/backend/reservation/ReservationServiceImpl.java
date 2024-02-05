@@ -53,9 +53,16 @@ public class ReservationServiceImpl implements ReservationService {
   }
 
   @Override
-  public void finalize(Reservation reservation) {
+  public Reservation updatePickedSeats(UUID reservationId, List<Integer> pickedSeats) {
+    Reservation reservation = reservationRepository.findById(reservationId).get();
+    reservation.setPickedSeats(pickedSeats);
+    return reservationRepository.save(reservation);
+  }
+
+  @Override
+  public Reservation finalize(Reservation reservation) {
     reservation.setFinalized(true);
-    reservationRepository.save(reservation);
+    return reservationRepository.save(reservation);
   }
 
 }

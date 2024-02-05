@@ -1,6 +1,6 @@
 package com.example.backend.film;
 
-import java.util.Set;
+import java.util.List;
 
 import lombok.Builder;
 
@@ -11,5 +11,5 @@ public record FilmWriteDto(
     String genre,
     String director,
     Integer age,
-    Set<Integer> actorsIds) {
+    List<Integer> actorsIds) {
 }

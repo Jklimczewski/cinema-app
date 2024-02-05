@@ -2,7 +2,10 @@ package com.example.backend.schedule;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+
+import com.example.backend.film.Film;
 
 public interface ScheduleService {
 
@@ -14,5 +17,7 @@ public interface ScheduleService {
 
   List<Schedule> findAll();
 
-  void updateAvailableSeats(UUID id, List<Integer> pickedSeats);
+  Schedule updateAvailableSeats(UUID id, List<Integer> pickedSeats);
+
+  Map<Film, List<Schedule>> getAllGroupedByFilmAndDate(LocalDate date);
 }

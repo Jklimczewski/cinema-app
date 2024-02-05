@@ -1,8 +1,9 @@
 package com.example.backend.film;
 
-import java.util.Set;
+import java.util.List;
 
 import com.example.backend.actor.ActorReadDto;
+import com.example.backend.schedule.ScheduleReadDto;
 import lombok.Builder;
 
 @Builder
@@ -13,5 +14,6 @@ public record FilmReadDto(
     String genre,
     Integer age,
     String director,
-    Set<ActorReadDto> actors) {
+    List<ScheduleReadDto> schedules,
+    List<ActorReadDto> actors) {
 }

@@ -1,7 +1,6 @@
 package com.example.backend.film;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.example.backend.actor.Actor;
@@ -45,9 +44,9 @@ public class FilmController {
   @ResponseStatus(HttpStatus.CREATED)
   @PostMapping
   public FilmReadDto create(@RequestBody FilmWriteDto writeDto) {
-    Set<Actor> actors = writeDto.actorsIds().stream()
+    List<Actor> actors = writeDto.actorsIds().stream()
         .map(actorService::getById)
-        .collect(Collectors.toSet());
+        .collect(Collectors.toList());
 
     Film filmToCreate = Film.builder()
         .title(writeDto.title())

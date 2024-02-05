@@ -2,10 +2,9 @@ package com.example.backend.actor;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-import java.util.Set;
+import java.util.List;
 
 import com.example.backend.film.Film;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -34,7 +33,6 @@ public class Actor {
   @Column(nullable = false)
   private String surrname;
 
-  @JsonIgnore
   @ManyToMany(mappedBy = "actors", fetch = FetchType.EAGER)
-  private Set<Film> filmsPlayed;
+  private List<Film> filmsPlayed;
 }

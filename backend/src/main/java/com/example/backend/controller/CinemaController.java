@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import com.example.backend.config.SecurityUtil;
@@ -11,6 +12,7 @@ import com.example.backend.reservation.Reservation;
 import com.example.backend.reservation.ReservationService;
 import com.example.backend.reservation.ReservationWriteDto;
 import com.example.backend.schedule.Schedule;
+import com.example.backend.schedule.ScheduleMapper;
 import com.example.backend.schedule.ScheduleService;
 import com.example.backend.user.UserEntity;
 import com.example.backend.user.UserService;
@@ -31,7 +33,7 @@ public class CinemaController {
   private final UserService userService;
 
   public CinemaController(ScheduleService scheduleService, FilmService filmService,
-      ReservationService reservationService, UserService userService) {
+      ReservationService reservationService, UserService userService, ScheduleMapper scheduleMapper) {
     this.scheduleService = scheduleService;
     this.filmService = filmService;
     this.reservationService = reservationService;
@@ -44,10 +46,11 @@ public class CinemaController {
   }
 
   @GetMapping("/repertoire")
-  public String repertoire(@RequestParam(name = "date", defaultValue = "2024-01-28") String stringDate, Model model) {
+  public String repertoire(@RequestParam(name = "date", defaultValue = "2024-02-06") String stringDate, Model model) {
     LocalDate date = LocalDate.parse(stringDate);
-    List<Schedule> repertoireByDate = scheduleService.getAllByDate(date);
-    model.addAttribute("repertoire", repertoireByDate);
+    Map<Film, List<Schedule>> groupedSchedules = scheduleService.getAllGroupedByFilmAndDate(date);
+
+    model.addAttribute("repertoire", groupedSchedules);
     return "repertoire";
   }
 
@@ -56,6 +59,18 @@ public class CinemaController {
     Schedule pickedSchedule = scheduleService.getById(scheduleId);
     model.addAttribute("schedule", pickedSchedule);
     return "seats";
+  }
+
+  @GetMapping("/films/{filmTitle}")
+  public String filmDetails(@PathVariable String filmTitle, Model model) {
+    String convertedTitle = filmTitle.replace('-', ' ').toLowerCase();
+    Film film = filmService.findByTitle(convertedTitle);
+    if (film != null) {
+      model.addAttribute("film", film);
+      return "filmDetails";
+    } else {
+      return "filmNotFound";
+    }
   }
 
   @PostMapping("/reservation")
@@ -68,20 +83,6 @@ public class CinemaController {
     return "redirect:/error";
   }
 
-  @GetMapping("/reservation/{reservationId}/delete")
-  public String deleteReservation(@PathVariable UUID reservationId, Model model) {
-    Reservation reservation = reservationService.findById(reservationId);
-    String username = SecurityUtil.getSessionUser();
-    if (username != null) {
-      UserEntity user = userService.findByEmail(username);
-      if (reservation.getMadeBy().getId() == user.getId()) {
-        reservationService.delete(reservation);
-        return "redirect:/cart";
-      }
-    }
-    return "redirect:/login";
-  }
-
   @GetMapping("/cart")
   public String showCart(Model model) {
     String username = SecurityUtil.getSessionUser();
@@ -92,7 +93,7 @@ public class CinemaController {
         model.addAttribute("reservations", reservations);
         return "cart";
       }
-      return "noItemsInCart";
+      return "cartNotFound";
     }
     return "redirect:/login";
   }
@@ -115,16 +116,48 @@ public class CinemaController {
     return "redirect:/login";
   }
 
-  @GetMapping("/films/{filmTitle}")
-  public String filmDetails(@PathVariable String filmTitle, Model model) {
-    String convertedTitle = filmTitle.replace('-', ' ').toLowerCase();
-    Film film = filmService.findByTitle(convertedTitle);
-    if (film != null) {
-      model.addAttribute("film", film);
-      return "filmDetails";
-    } else {
-      return "filmNotFound";
+  @GetMapping("/reservation/{reservationId}")
+  public String showReservation(@PathVariable UUID reservationId, Model model) {
+    Reservation reservation = reservationService.findById(reservationId);
+    String username = SecurityUtil.getSessionUser();
+    if (username != null) {
+      UserEntity user = userService.findByEmail(username);
+      if (reservation.getMadeBy().getId() == user.getId()) {
+        model.addAttribute("reservation", reservation);
+        return "reservation";
+      }
+      return "cart";
     }
+    return "redirect:/login";
+  }
+
+  @PostMapping("/reservation/{reservationId}/update")
+  public String updateReservation(@PathVariable UUID reservationId, @RequestBody ReservationWriteDto writeDto,
+      Model model) {
+    Reservation reservation = reservationService.findById(reservationId);
+    String username = SecurityUtil.getSessionUser();
+    if (username != null) {
+      UserEntity user = userService.findByEmail(username);
+      if (reservation.getMadeBy().getId() == user.getId()) {
+        reservationService.updatePickedSeats(reservationId, writeDto.pickedSeats());
+      }
+      return "redirect:/cart";
+    }
+    return "redirect:/login";
+  }
+
+  @GetMapping("/reservation/{reservationId}/delete")
+  public String deleteReservation(@PathVariable UUID reservationId, Model model) {
+    Reservation reservation = reservationService.findById(reservationId);
+    String username = SecurityUtil.getSessionUser();
+    if (username != null) {
+      UserEntity user = userService.findByEmail(username);
+      if (reservation.getMadeBy().getId() == user.getId()) {
+        reservationService.delete(reservation);
+      }
+      return "redirect:/cart";
+    }
+    return "redirect:/login";
   }
 
 }
