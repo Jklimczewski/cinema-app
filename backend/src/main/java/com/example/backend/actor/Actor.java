@@ -35,4 +35,16 @@ public class Actor {
 
   @ManyToMany(mappedBy = "actors", fetch = FetchType.EAGER)
   private List<Film> filmsPlayed;
+
+  public void update(Actor actor) {
+    if (actor instanceof Actor o) {
+      if (o.name != null) {
+        name = o.name;
+      }
+
+      if (o.surrname != null) {
+        surrname = o.surrname;
+      }
+    }
+  }
 }

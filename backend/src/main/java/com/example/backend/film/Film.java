@@ -56,4 +56,24 @@ public class Film {
   public void addActor(Actor actor) {
     actors.add(actor);
   }
+
+  public void update(Film film) {
+    if (film instanceof Film o) {
+      if (o.picture != null) {
+        picture = o.picture;
+      }
+
+      if (o.genre != null) {
+        genre = o.genre;
+      }
+
+      if (o.age != null) {
+        age = o.age;
+      }
+
+      if (o.director != null) {
+        director = o.director;
+      }
+    }
+  }
 }

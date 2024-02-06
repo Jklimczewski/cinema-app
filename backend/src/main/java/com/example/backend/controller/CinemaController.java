@@ -152,7 +152,7 @@ public class CinemaController {
     if (username != null) {
       UserEntity user = userService.findByEmail(username);
       if (reservation.getMadeBy().getId() == user.getId()) {
-        reservationService.delete(reservation);
+        reservationService.deleteById(reservation.getId());
       }
       return "redirect:/cart";
     }

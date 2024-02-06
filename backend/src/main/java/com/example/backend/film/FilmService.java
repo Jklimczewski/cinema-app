@@ -10,4 +10,8 @@ public interface FilmService {
   Film findByTitle(String title);
 
   Film save(Film film);
+
+  Film update(Integer id, Film film);
+
+  void deleteById(Integer id);
 }

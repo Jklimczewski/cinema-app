@@ -17,6 +17,6 @@ public interface ReservationService {
 
   Reservation updatePickedSeats(UUID reservationId, List<Integer> pickedSeats);
 
-  void delete(Reservation reservation);
+  void deleteById(UUID id);
 
 }

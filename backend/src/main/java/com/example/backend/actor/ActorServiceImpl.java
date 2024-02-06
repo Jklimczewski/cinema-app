@@ -28,4 +28,17 @@ public class ActorServiceImpl implements ActorService {
     return actorRepository.findAll();
   }
 
+  @Override
+  public Actor update(Integer id, Actor actor) {
+    Actor actorToUpdate = getById(id);
+    actorToUpdate.update(actor);
+    return actorRepository.save(actorToUpdate);
+  }
+
+  @Override
+  public void deleteById(Integer id) {
+    Actor actorToDelete = getById(id);
+    actorRepository.delete(actorToDelete);
+  }
+
 }

@@ -32,4 +32,17 @@ public class FilmServiceImpl implements FilmService {
   public List<Film> getAll() {
     return filmRepository.findAll();
   }
+
+  @Override
+  public Film update(Integer id, Film film) {
+    Film filmToUpdate = getById(id);
+    filmToUpdate.update(film);
+    return filmRepository.save(filmToUpdate);
+  }
+
+  @Override
+  public void deleteById(Integer id) {
+    Film filmToDelete = getById(id);
+    filmRepository.delete(filmToDelete);
+  }
 }

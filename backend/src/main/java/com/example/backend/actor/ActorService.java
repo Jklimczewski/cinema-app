@@ -8,4 +8,8 @@ public interface ActorService {
   Actor getById(Integer id);
 
   Actor save(Actor actor);
+
+  Actor update(Integer id, Actor actor);
+
+  void deleteById(Integer id);
 }
