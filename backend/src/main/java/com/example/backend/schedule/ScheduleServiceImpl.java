@@ -1,7 +1,6 @@
 package com.example.backend.schedule;
 
 import java.time.LocalDate;
-import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 import java.util.Map;
@@ -57,13 +56,9 @@ public class ScheduleServiceImpl implements ScheduleService {
 
   @Override
   public Map<Film, List<Schedule>> getAllGroupedByFilmAndDate(LocalDate date) {
-    List<Schedule> schedules = scheduleRepository.findByShowDate(date);
+    List<Schedule> schedules = scheduleRepository.findByShowDateOrderByFilmAndShowTime(date);
 
-    Map<Film, List<Schedule>> groupedByFilm = schedules.stream()
+    return schedules.stream()
         .collect(Collectors.groupingBy(Schedule::getFilm));
-
-    groupedByFilm.forEach((film, filmSchedules) -> filmSchedules.sort(Comparator.comparing(Schedule::getShowTime)));
-
-    return groupedByFilm;
   }
 }

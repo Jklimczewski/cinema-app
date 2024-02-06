@@ -109,7 +109,6 @@ public class CinemaController {
           scheduleService.updateAvailableSeats(reservation.getSchedule().getId(), reservation.getPickedSeats());
           reservationService.finalize(reservation);
         }
-        return "redirect:/";
       }
       return "redirect:/cart";
     }

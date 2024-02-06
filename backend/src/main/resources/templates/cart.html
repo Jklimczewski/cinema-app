@@ -115,8 +115,9 @@
         </li>
       </ul>
       <div class="self-center mt-20">
-        <button class="btn btn-accent">Potwierdź zamówienie</button>
-        <div class="text-3xl p-5">Numer zamówienia:</div>
+        <button class="btn btn-accent" th:attr="onclick=|makePayment()|">
+          Potwierdź i opłać zamówienie
+        </button>
       </div>
     </div>
   </body>
@@ -130,6 +131,12 @@
 
   function navigateCart() {
     window.location.href = `/cart`;
+  }
+
+  function makePayment() {
+    setTimeout(() => {
+      window.location.href = `/cart/payment`;
+    }, 1000);
   }
 
   function editReservation(reservationId) {
