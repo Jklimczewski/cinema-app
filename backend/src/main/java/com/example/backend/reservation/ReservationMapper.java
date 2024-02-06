@@ -9,6 +9,7 @@ public interface ReservationMapper {
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "schedule", ignore = true)
   @Mapping(target = "madeBy", ignore = true)
+  @Mapping(target = "finalized", ignore = true)
   Reservation fromWriteDto(ReservationWriteDto writeDto);
 
   @Mapping(target = "showDate", expression = "java(reservation.getSchedule().getShowDate())")

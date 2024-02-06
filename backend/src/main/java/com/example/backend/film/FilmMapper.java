@@ -13,6 +13,7 @@ public interface FilmMapper {
 
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "actors", ignore = true)
+  @Mapping(target = "schedules", ignore = true)
   Film fromWriteDto(FilmWriteDto writeDto);
 
   FilmReadDto toReadDto(Film film);

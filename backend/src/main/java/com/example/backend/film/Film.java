@@ -58,22 +58,20 @@ public class Film {
   }
 
   public void update(Film film) {
-    if (film instanceof Film o) {
-      if (o.picture != null) {
-        picture = o.picture;
-      }
+    if (film.picture != null) {
+      picture = film.picture;
+    }
 
-      if (o.genre != null) {
-        genre = o.genre;
-      }
+    if (film.genre != null) {
+      genre = film.genre;
+    }
 
-      if (o.age != null) {
-        age = o.age;
-      }
+    if (film.age != null) {
+      age = film.age;
+    }
 
-      if (o.director != null) {
-        director = o.director;
-      }
+    if (film.director != null) {
+      director = film.director;
     }
   }
 }
