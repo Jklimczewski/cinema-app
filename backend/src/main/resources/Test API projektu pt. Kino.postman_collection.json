@@ -1,0 +1,1583 @@
+{
+	"info": {
+		"_postman_id": "ef2ba696-a1be-4008-b113-1b6ef35e77a7",
+		"name": "Test API projektu pt. Kino",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24344154"
+	},
+	"item": [
+		{
+			"name": "Actors",
+			"item": [
+				{
+					"name": "Add actor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Janusz\",\r\n    \"surrname\": \"Kowalski\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/actors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"actors"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Janusz\",\r\n    \"surrname\": \"Kowalski\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/actors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"actors"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:16:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"name\": \"Janusz\",\n    \"surrname\": \"Kowalski\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/actors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"actors"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/actors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"actors"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:20:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Jakub\",\n        \"surrname\": \"Kowalik\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Janusz\",\n        \"surrname\": \"Kowalski\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Janusz\",\n        \"surrname\": \"Kowalski\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Janusz\",\n        \"surrname\": \"Kowalski\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get one actor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/actors/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/actors/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"actors",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:20:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"Janusz\",\n    \"surrname\": \"Kowalski\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Change actor data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jakub\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/actors/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Jakub\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/actors/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"actors",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:22:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"name\": \"Jakub\",\n    \"surrname\": \"Kowalski\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete actor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/actors/3/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"actors",
+								"3",
+								"delete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/actors/3/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"actors",
+										"3",
+										"delete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:23:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Films",
+			"item": [
+				{
+					"name": "Add film",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Wiedźmin\",\r\n    \"picture\": \"/\",\r\n    \"genre\": \"Gatunek1\",\r\n    \"age\": 16,\r\n    \"director\": \"Ewa Kowalska\",\r\n    \"actorsIds\": [1]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/films",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"films"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Wiedźmin\",\r\n    \"picture\": \"/\",\r\n    \"genre\": \"Gatunek1\",\r\n    \"age\": 16,\r\n    \"director\": \"Ewa Kowalska\",\r\n    \"actorsIds\": [1]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/films",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"films"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:25:12 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 5,\n    \"title\": \"Wiedźmin\",\n    \"picture\": \"/\",\n    \"genre\": \"Gatunek1\",\n    \"age\": 16,\n    \"director\": \"Ewa Kowalska\",\n    \"schedules\": null,\n    \"actors\": [\n        {\n            \"id\": 1,\n            \"name\": \"Jakub\",\n            \"surrname\": \"Kowalik\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all films",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/films",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"films"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/films",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"films"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:25:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Krzyżacy\",\n        \"picture\": \"/\",\n        \"genre\": \"Gatunek1\",\n        \"age\": 16,\n        \"director\": \"Ewa Kowalska\",\n        \"schedules\": [\n            {\n                \"id\": \"f3b9dd4c-e3c7-49f9-ba5e-3adc49ebfacb\",\n                \"showDate\": \"2024-02-05\",\n                \"showTime\": \"13:00\",\n                \"filmTitle\": \"Krzyżacy\",\n                \"filmPicture\": \"/\",\n                \"availableSeats\": [\n                    1,\n                    2,\n                    3,\n                    4,\n                    5,\n                    6,\n                    7,\n                    8,\n                    9,\n                    10\n                ]\n            },\n            {\n                \"id\": \"93ff3045-6023-496e-b418-f71eb26908d5\",\n                \"showDate\": \"2024-02-05\",\n                \"showTime\": \"15:00\",\n                \"filmTitle\": \"Krzyżacy\",\n                \"filmPicture\": \"/\",\n                \"availableSeats\": [\n                    1,\n                    2,\n                    3,\n                    4,\n                    5,\n                    6,\n                    7,\n                    8,\n                    9,\n                    10\n                ]\n            },\n            {\n                \"id\": \"888197e4-94cd-46ca-bb2a-7dfd3ff907d3\",\n                \"showDate\": \"2024-02-06\",\n                \"showTime\": \"17:00\",\n                \"filmTitle\": \"Krzyżacy\",\n                \"filmPicture\": \"/\",\n                \"availableSeats\": [\n                    1,\n                    2,\n                    3,\n                    4,\n                    5,\n                    6,\n                    7\n                ]\n            }\n        ],\n        \"actors\": [\n            {\n                \"id\": 1,\n                \"name\": \"Jakub\",\n                \"surrname\": \"Kowalik\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Janusz\",\n                \"surrname\": \"Kowalski\"\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Pancerni\",\n        \"picture\": \"/\",\n        \"genre\": \"Gatunek1\",\n        \"age\": 16,\n        \"director\": \"Ewa Kowalska\",\n        \"schedules\": [\n            {\n                \"id\": \"1437fd62-af96-456f-86cd-d69b76109569\",\n                \"showDate\": \"2024-02-06\",\n                \"showTime\": \"13:00\",\n                \"filmTitle\": \"Pancerni\",\n                \"filmPicture\": \"/\",\n                \"availableSeats\": [\n                    1,\n                    2,\n                    3,\n                    4,\n                    5,\n                    6,\n                    7,\n                    8,\n                    9,\n                    10\n                ]\n            },\n            {\n                \"id\": \"d1767b14-8497-4e56-babe-5aafae0ee15e\",\n                \"showDate\": \"2024-02-06\",\n                \"showTime\": \"17:00\",\n                \"filmTitle\": \"Pancerni\",\n                \"filmPicture\": \"/\",\n                \"availableSeats\": [\n                    1,\n                    2,\n                    3,\n                    4,\n                    5,\n                    6,\n                    7,\n                    8,\n                    9,\n                    10\n                ]\n            }\n        ],\n        \"actors\": [\n            {\n                \"id\": 1,\n                \"name\": \"Jakub\",\n                \"surrname\": \"Kowalik\"\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"title\": \"pancerni2\",\n        \"picture\": \"/\",\n        \"genre\": \"Gatunek1\",\n        \"age\": 16,\n        \"director\": \"Ewa Kowalska\",\n        \"schedules\": [],\n        \"actors\": [\n            {\n                \"id\": 1,\n                \"name\": \"Jakub\",\n                \"surrname\": \"Kowalik\"\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"title\": \"Wiedźmin\",\n        \"picture\": \"/\",\n        \"genre\": \"Gatunek1\",\n        \"age\": 16,\n        \"director\": \"Ewa Kowalska\",\n        \"schedules\": [],\n        \"actors\": [\n            {\n                \"id\": 1,\n                \"name\": \"Jakub\",\n                \"surrname\": \"Kowalik\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get one film",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/films/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"films",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/films/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"films",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:26:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"title\": \"Pancerni\",\n    \"picture\": \"/\",\n    \"genre\": \"Gatunek1\",\n    \"age\": 16,\n    \"director\": \"Ewa Kowalska\",\n    \"schedules\": [\n        {\n            \"id\": \"1437fd62-af96-456f-86cd-d69b76109569\",\n            \"showDate\": \"2024-02-06\",\n            \"showTime\": \"13:00\",\n            \"filmTitle\": \"Pancerni\",\n            \"filmPicture\": \"/\",\n            \"availableSeats\": [\n                1,\n                2,\n                3,\n                4,\n                5,\n                6,\n                7,\n                8,\n                9,\n                10\n            ]\n        },\n        {\n            \"id\": \"d1767b14-8497-4e56-babe-5aafae0ee15e\",\n            \"showDate\": \"2024-02-06\",\n            \"showTime\": \"17:00\",\n            \"filmTitle\": \"Pancerni\",\n            \"filmPicture\": \"/\",\n            \"availableSeats\": [\n                1,\n                2,\n                3,\n                4,\n                5,\n                6,\n                7,\n                8,\n                9,\n                10\n            ]\n        }\n    ],\n    \"actors\": [\n        {\n            \"id\": 1,\n            \"name\": \"Jakub\",\n            \"surrname\": \"Kowalik\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Add actor to film",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/films/2/actors/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"films",
+								"2",
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/films/2/actors/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"films",
+										"2",
+										"actors",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:29:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"title\": \"Pancerni\",\n    \"picture\": \"/\",\n    \"genre\": \"Gatunek1\",\n    \"age\": 16,\n    \"director\": \"Ewa Kowalska\",\n    \"schedules\": [\n        {\n            \"id\": \"1437fd62-af96-456f-86cd-d69b76109569\",\n            \"showDate\": \"2024-02-06\",\n            \"showTime\": \"13:00\",\n            \"filmTitle\": \"Pancerni\",\n            \"filmPicture\": \"/\",\n            \"availableSeats\": [\n                1,\n                2,\n                3,\n                4,\n                5,\n                6,\n                7,\n                8,\n                9,\n                10\n            ]\n        },\n        {\n            \"id\": \"d1767b14-8497-4e56-babe-5aafae0ee15e\",\n            \"showDate\": \"2024-02-06\",\n            \"showTime\": \"17:00\",\n            \"filmTitle\": \"Pancerni\",\n            \"filmPicture\": \"/\",\n            \"availableSeats\": [\n                1,\n                2,\n                3,\n                4,\n                5,\n                6,\n                7,\n                8,\n                9,\n                10\n            ]\n        }\n    ],\n    \"actors\": [\n        {\n            \"id\": 1,\n            \"name\": \"Jakub\",\n            \"surrname\": \"Kowalik\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Janusz\",\n            \"surrname\": \"Kowalski\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete film",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/films/5/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"films",
+								"5",
+								"delete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/films/5/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"films",
+										"5",
+										"delete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:29:57 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Schedule",
+			"item": [
+				{
+					"name": "Add schedule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filmId\": 1,\r\n    \"showDate\": \"2024-02-07\",\r\n    \"showTime\": \"17:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/schedule",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"schedule"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"filmId\": 1,\r\n    \"showDate\": \"2024-02-07\",\r\n    \"showTime\": \"17:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/schedule",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"schedule"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:30:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"24012159-7911-4fd2-aa4d-06a8c46080cd\",\n    \"showDate\": \"2024-02-07\",\n    \"showTime\": \"17:00\",\n    \"filmTitle\": \"Krzyżacy\",\n    \"filmPicture\": \"/\",\n    \"availableSeats\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,\n        7,\n        8,\n        9,\n        10\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all schedules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/schedule",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"schedule"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/schedule",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"schedule"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:31:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"f3b9dd4c-e3c7-49f9-ba5e-3adc49ebfacb\",\n        \"showDate\": \"2024-02-05\",\n        \"showTime\": \"13:00\",\n        \"filmTitle\": \"Krzyżacy\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7,\n            8,\n            9,\n            10\n        ]\n    },\n    {\n        \"id\": \"93ff3045-6023-496e-b418-f71eb26908d5\",\n        \"showDate\": \"2024-02-05\",\n        \"showTime\": \"15:00\",\n        \"filmTitle\": \"Krzyżacy\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7,\n            8,\n            9,\n            10\n        ]\n    },\n    {\n        \"id\": \"1437fd62-af96-456f-86cd-d69b76109569\",\n        \"showDate\": \"2024-02-06\",\n        \"showTime\": \"13:00\",\n        \"filmTitle\": \"Pancerni\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7,\n            8,\n            9,\n            10\n        ]\n    },\n    {\n        \"id\": \"d1767b14-8497-4e56-babe-5aafae0ee15e\",\n        \"showDate\": \"2024-02-06\",\n        \"showTime\": \"17:00\",\n        \"filmTitle\": \"Pancerni\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7,\n            8,\n            9,\n            10\n        ]\n    },\n    {\n        \"id\": \"888197e4-94cd-46ca-bb2a-7dfd3ff907d3\",\n        \"showDate\": \"2024-02-06\",\n        \"showTime\": \"17:00\",\n        \"filmTitle\": \"Krzyżacy\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7\n        ]\n    },\n    {\n        \"id\": \"24012159-7911-4fd2-aa4d-06a8c46080cd\",\n        \"showDate\": \"2024-02-07\",\n        \"showTime\": \"17:00\",\n        \"filmTitle\": \"Krzyżacy\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7,\n            8,\n            9,\n            10\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get one schedule",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/schedule/f3b9dd4c-e3c7-49f9-ba5e-3adc49ebfacb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"schedule",
+								"f3b9dd4c-e3c7-49f9-ba5e-3adc49ebfacb"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/schedule/f3b9dd4c-e3c7-49f9-ba5e-3adc49ebfacb",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"schedule",
+										"f3b9dd4c-e3c7-49f9-ba5e-3adc49ebfacb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:32:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"f3b9dd4c-e3c7-49f9-ba5e-3adc49ebfacb\",\n    \"showDate\": \"2024-02-05\",\n    \"showTime\": \"13:00\",\n    \"filmTitle\": \"Krzyżacy\",\n    \"filmPicture\": \"/\",\n    \"availableSeats\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,\n        7,\n        8,\n        9,\n        10\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Filter schedules by date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/schedule?date=2024-02-06",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"schedule"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2024-02-06"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Filter schedules by date",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/schedule?date=2024-02-06",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"schedule"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2024-02-06"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 11:34:57 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"f3b9dd4c-e3c7-49f9-ba5e-3adc49ebfacb\",\n        \"showDate\": \"2024-02-05\",\n        \"showTime\": \"13:00\",\n        \"filmTitle\": \"Krzyżacy\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7,\n            8,\n            9,\n            10\n        ]\n    },\n    {\n        \"id\": \"93ff3045-6023-496e-b418-f71eb26908d5\",\n        \"showDate\": \"2024-02-05\",\n        \"showTime\": \"15:00\",\n        \"filmTitle\": \"Krzyżacy\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7,\n            8,\n            9,\n            10\n        ]\n    },\n    {\n        \"id\": \"1437fd62-af96-456f-86cd-d69b76109569\",\n        \"showDate\": \"2024-02-06\",\n        \"showTime\": \"13:00\",\n        \"filmTitle\": \"Pancerni\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7,\n            8,\n            9,\n            10\n        ]\n    },\n    {\n        \"id\": \"d1767b14-8497-4e56-babe-5aafae0ee15e\",\n        \"showDate\": \"2024-02-06\",\n        \"showTime\": \"17:00\",\n        \"filmTitle\": \"Pancerni\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7,\n            8,\n            9,\n            10\n        ]\n    },\n    {\n        \"id\": \"888197e4-94cd-46ca-bb2a-7dfd3ff907d3\",\n        \"showDate\": \"2024-02-06\",\n        \"showTime\": \"17:00\",\n        \"filmTitle\": \"Krzyżacy\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7\n        ]\n    },\n    {\n        \"id\": \"24012159-7911-4fd2-aa4d-06a8c46080cd\",\n        \"showDate\": \"2024-02-07\",\n        \"showTime\": \"17:00\",\n        \"filmTitle\": \"Krzyżacy\",\n        \"filmPicture\": \"/\",\n        \"availableSeats\": [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7,\n            8,\n            9,\n            10\n        ]\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
