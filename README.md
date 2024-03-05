@@ -1,4 +1,4 @@
-# Cienam-App
+# Cinema-App
 
 ## :notebook: Description
 
@@ -8,8 +8,8 @@ I've made this project during my last year of studies while learning the `Spring
 
 - everything written in Java, managed by Spring Boot and connected to `PostgreSQL` database
 - implementation of `Spring Boot security` in version 6
-- mapping from / to DTOs with the help of `MapStruct` library
-- amazingly looking Thymeleaf templates with the help of [Tailwind](https://tailwindcss.com/)
+- mapping from / to DTOs with the help of [MapStruct](https://mapstruct.org/) library
+- amazingly looking Thymeleaf templates thanks to [Tailwind](https://tailwindcss.com/)
 - and of course some good old `Lombok` annotations
 
 ## :star: Main features
@@ -21,4 +21,4 @@ I've made this project during my last year of studies while learning the `Spring
   - update / delete or finalize the reservation process
 - additionally CRUD operations on most classes through endpoints of `RestContollers` and visualized with [Postman](https://www.postman.com/) in [this](src/main/resources) directory
 - every entity action seperated inside layers ( `Repository` -> `Service` -> `Dto` -> `Controller` )
-- API documentation available with the help of [Swagger](https://swagger.io/) at `/swagger-ui/index.html`
+- API documentation available with [Swagger](https://swagger.io/) at `/swagger-ui/index.html`
