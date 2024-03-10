@@ -4,6 +4,9 @@
 
 I've made this project during my last year of studies while learning the `Spring Boot` framework. As a user inteface and template engine I used `Thymeleaf`.
 
+## 🔭 App Preview
+![](https://github.com/Jklimczewski/cinema-app/blob/main/AppPreview.gif)
+
 ### 🧰 Architecture
 
 - everything written in Java, managed by Spring Boot and connected to `PostgreSQL` database
