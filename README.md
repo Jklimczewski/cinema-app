@@ -1,13 +1,13 @@
 # Cinema-App
 
-## :notebook: Description
+## 📝 Description
 
 I've made this project during my last year of studies while learning the `Spring Boot` framework. As a user inteface and template engine I used `Thymeleaf`.
 
 ## 🔭 App Preview
 ![](https://github.com/Jklimczewski/cinema-app/blob/main/AppPreview.gif)
 
-### 🧰 Architecture
+### 🛠️ Architecture
 
 - everything written in Java, managed by Spring Boot and connected to `PostgreSQL` database
 - implementation of `Spring Boot security` in version 6
@@ -15,7 +15,7 @@ I've made this project during my last year of studies while learning the `Spring
 - amazingly looking Thymeleaf templates thanks to [Tailwind](https://tailwindcss.com/)
 - and of course some good old `Lombok` annotations
 
-## :star: Main features
+## 🏌️‍♂️Main features
 
 - user register / login using email and password authentication and implementing the `UserDetailsService` interface
 - auth and cinema `Controllers` in order to let the user authenticate and interact with the server
